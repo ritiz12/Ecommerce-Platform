@@ -1,0 +1,148 @@
+<<!-- src/app/components/signup/signup.component.html -->
+
+<div class="signup-container">
+  <div class="signup-card">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-icon">🛍️</div>
+      <div class="logo-text">ShopHub</div>
+      <div class="logo-subtitle">Join Our Shopping Community</div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message">
+      <i class="fas fa-exclamation-circle"></i>
+      Username already exists
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message">
+      <i class="fas fa-check-circle"></i>
+      Account created successfully!
+    </div>
+
+    <!-- Signup Form -->
+    <form class="signup-form">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label class="form-label" for="username">
+          <i class="fas fa-user"></i> Username
+        </label>
+        <input
+          type="text"
+          id="username"
+          class="form-input"
+          placeholder="Choose a username"
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label class="form-label" for="email">
+          <i class="fas fa-envelope"></i> Email Address
+        </label>
+        <input
+          type="email"
+          id="email"
+          class="form-input"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <!-- First Name Field -->
+      <div class="form-group">
+        <label class="form-label" for="firstName">
+          <i class="fas fa-id-card"></i> First Name
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-input"
+          placeholder="Enter your first name"
+        />
+      </div>
+
+      <!-- Last Name Field -->
+      <div class="form-group">
+        <label class="form-label" for="lastName">
+          <i class="fas fa-id-card"></i> Last Name
+        </label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-input"
+          placeholder="Enter your last name"
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label class="form-label" for="password">
+          <i class="fas fa-lock"></i> Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          class="form-input"
+          placeholder="Create a strong password (min 6 characters)"
+        />
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="form-group">
+        <label class="form-label" for="confirmPassword">
+          <i class="fas fa-lock"></i> Confirm Password
+        </label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-input"
+          placeholder="Confirm your password"
+        />
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div class="checkbox-wrapper terms">
+        <input type="checkbox" id="terms" />
+        <label for="terms">
+          I agree to the
+          <a href="#" class="terms-link">Terms and Conditions</a>
+        </label>
+      </div>
+
+      <!-- Signup Button -->
+      <button type="button" class="signup-button">
+        <i class="fas fa-user-plus"></i> Create Account
+      </button>
+    </form>
+
+    <!-- Loading Spinner -->
+    <div class="loading">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <span>Or sign up with</span>
+    </div>
+
+    <!-- Social Signup -->
+    <div class="social-signup">
+      <button type="button" class="social-button" title="Sign up with Google">
+        <i class="fab fa-google"></i>
+      </button>
+      <button type="button" class="social-button" title="Sign up with Facebook">
+        <i class="fab fa-facebook"></i>
+      </button>
+      <button type="button" class="social-button" title="Sign up with GitHub">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+
+    <!-- Login Link -->
+    <div class="login-section">
+      Already have an account?
+      <a href="#" class="login-link">Login here</a>
+    </div>
+  </div>
+</div>

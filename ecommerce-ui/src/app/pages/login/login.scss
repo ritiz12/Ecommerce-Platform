@@ -1,0 +1,381 @@
+// src/app/components/login/login.component.scss
+
+// Variables
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$text-dark: #333;
+$text-light: #666;
+$text-lighter: #999;
+$border-light: #e0e0e0;
+$bg-light: #f9f9f9;
+$error-color: #cc3333;
+$success-color: #33cc33;
+$shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 10px 25px rgba(102, 126, 234, 0.4);
+$shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+// Animations
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Login Container
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-gradient;
+  padding: 20px;
+}
+
+// Login Card
+.login-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: $shadow-lg;
+  width: 100%;
+  max-width: 450px;
+  padding: 50px 40px;
+  animation: slideUp 0.5s ease-out;
+}
+
+// Logo Section
+.logo-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 10px;
+}
+
+.logo-subtitle {
+  color: $text-lighter;
+  font-size: 14px;
+}
+
+// Form Group
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-dark;
+  margin-bottom: 8px;
+
+  i {
+    margin-right: 6px;
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid $border-light;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  &::placeholder {
+    color: #bbb;
+  }
+
+  &[aria-invalid="true"] {
+    border-color: $error-color;
+  }
+}
+
+// Remember & Forgot Section
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: $primary-color;
+  }
+
+  label {
+    color: $text-light;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.forgot-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Login Button
+.login-button {
+  width: 100%;
+  padding: 12px 20px;
+  background: $primary-gradient;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+
+  i {
+    margin-right: 6px;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: 2px solid $secondary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Messages
+.error-message,
+.success-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  display: none;
+  animation: slideUp 0.3s ease-out;
+
+  &.show {
+    display: block;
+  }
+}
+
+.error-message {
+  background: #fee;
+  color: $error-color;
+  border-left: 4px solid $error-color;
+
+  &.show {
+    animation: shake 0.3s ease;
+  }
+}
+
+.success-message {
+  background: #efe;
+  color: $success-color;
+  border-left: 4px solid $success-color;
+}
+
+// Loading
+.loading {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid $primary-color;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+// Divider
+.divider {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ccc;
+  font-size: 13px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: $border-light;
+    z-index: -1;
+  }
+
+  span {
+    background: white;
+    padding: 0 10px;
+    color: $text-lighter;
+  }
+}
+
+// Social Login
+.social-login {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.social-button {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid $border-light;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Sign Up Section
+.signup-section {
+  text-align: center;
+  color: $text-light;
+  font-size: 14px;
+}
+
+.signup-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .logo-text {
+    font-size: 28px;
+  }
+
+  .logo-icon {
+    font-size: 40px;
+  }
+
+  .login-button {
+    font-size: 15px;
+    padding: 11px 16px;
+  }
+
+  .remember-forgot {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .social-login {
+    flex-direction: column;
+  }
+
+  .social-button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}

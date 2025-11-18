@@ -1,0 +1,58 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-section">
+      <div class="logo-icon">🛍️</div>
+      <div class="logo-text">ShopHub</div>
+      <div class="logo-subtitle">Your Online Shopping Destination</div>
+    </div>
+
+    <div class="error-message" *ngIf="errorMessage">
+      <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+    </div>
+
+    <div class="success-message" *ngIf="successMessage">
+      <i class="fas fa-check-circle"></i> {{ successMessage }}
+    </div>
+
+    <form class="login-form" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label class="form-label" for="email">
+          <i class="fas fa-envelope"></i> Email Address
+        </label>
+        <input
+          type="email"
+          id="email"
+          class="form-input"
+          placeholder="Enter your email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">
+          <i class="fas fa-lock"></i> Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          class="form-input"
+          placeholder="Enter your password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="login-button" [disabled]="loading">
+        <i class="fas fa-sign-in-alt"></i>
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+
+    <div class="signup-section">
+      Don't have an account? <a href="/signup" class="signup-link">Sign up here</a>
+    </div>
+  </div>
+</div>
